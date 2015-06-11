@@ -3,14 +3,17 @@
   (lambda(x)
     (and(not(pair? x))(not(null? x)))))
 
+(define lat (list 'ewc 'aoq 'apd 'lw 'ef 'olw))
+
 (define lat?
   (lambda(x)
     (cond
       ((null? x)#f)
-      (atom? (car x)#t)
-      (lat? (cdr x)))))
+      (atom? (car x) #t)
+      (else
+       (lat?(cdr x))))))
 
-(define lat (list 'ewc 'aoq 'apd 'lw 'ef 'olw))
-
-  
+;;this is the problem with my programming.
+;; the line with null? is fine.
+;;but then atom? is a problem as well.
 

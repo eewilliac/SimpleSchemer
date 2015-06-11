@@ -10,4 +10,7 @@
       (atom? (car x)#t)
       (lat? (cdr x)))))
 
-(define l '(a b c d))
+(define lat (list 'ewc 'aoq 'apd 'lw 'ef 'olw))
+
+  
+

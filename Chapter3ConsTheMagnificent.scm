@@ -41,9 +41,42 @@
   (lambda (new old lat)
     (cond
       ((null? lat)(quote()))
-      ((eq? (car lat) old)(cons old(cons new (cdr lat))))
+      ((eq? (car lat) old)(cons old(cons new (insertR new old (cdr lat)))))
       (else
        (cons (car lat)(insertR new old (cdr lat)))))))
 
-      
+
+(define insertL
+  (lambda (new old lat)
+    (cond
+      ((null? lat)(quote()))
+      ((eq? (car lat) old)(cons old(cons new(insertR new old (cdr lat))))) ;this is what you need to memorize (cons old (cons new (function (cdr list)))
+      (else
+       (cons (car lat)(insertR new old (cdr lat)))))))
+
+(define subst
+  (lambda (new old lat)
+    (cond
+      ((null? lat)(quote()))
+      ((eq? (car lat)old)(cons new (subst new old (cdr lat))))
+      (else
+       (cons (car lat)(subst new old (cdr lat)))))))
+
+
+(define subst2
+  (lambda (new old1 old2 lat)
+    (cond
+      ((null? lat)(quote()))
+      ((or(eq?(car lat)old1)(eq?(car lat)old2))(cons new (subst2 new old1 old2 (cdr lat))))
+      (else
+       (cons (car lat)(subst2 new old1 old2 (cdr lat)))))))
+
+;work on this one because my mental model is kinda shakey...
+(define multirember
+  (lambda (anAtom alat)
+    (cond
+      ((null? alat)(quote()))
+      ((eq? (car alat) anAtom) (multirember anAtom (cdr alat)))
+      (else
+       (cons (car alat)(multirember anAtom(cdr alat)))))))
      

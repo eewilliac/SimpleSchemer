@@ -79,4 +79,9 @@
       ((eq? (car alat) anAtom) (multirember anAtom (cdr alat)))
       (else
        (cons (car alat)(multirember anAtom(cdr alat)))))))
+
+(define multiinsertR
+  (lambda (old new alat)
+    (cond
+      ((null? alat)(quote()))
      

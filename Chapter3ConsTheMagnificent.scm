@@ -84,4 +84,7 @@
   (lambda (old new alat)
     (cond
       ((null? alat)(quote()))
+      ((eq? (car alat)old)(cons new(multiinsertR old new (cdr alat))))
+      (else
+       (cons (car alat)(multiinsertR old new (cdr alat)))))))
      

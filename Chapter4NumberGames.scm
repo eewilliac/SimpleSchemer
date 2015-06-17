@@ -24,6 +24,6 @@
 (define tupadd
   (lambda(atuple)
     (cond
-      ((null atuple)0)
+      ((null? atuple)0)
       (else
        (recursiveAdd (car atuple)(tupadd (cdr atuple)))))))

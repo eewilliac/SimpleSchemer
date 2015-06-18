@@ -27,3 +27,10 @@
       ((null? atuple)0)
       (else
        (recursiveAdd (car atuple)(tupadd (cdr atuple)))))))
+
+(define recursiveMult
+  (lambda(n m)
+    (cond
+      ((zero? m)0)
+      (else
+       (recursiveAdd n(recursiveMult n (sub1 m)))))))

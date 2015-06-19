@@ -34,3 +34,12 @@
       ((zero? m)0)
       (else
        (recursiveAdd n(recursiveMult n (sub1 m)))))))
+
+(define etup1 (list 3 6 9 11 4))
+(define etup2 (list 8 5 2 0 7))
+(define tupAdd
+  (lambda(tup1 tup2)
+    (cond
+      ((or (null? tup1)(null? tup2))(quote()))
+      (else
+       (cons(recursiveAdd (car tup1)(car tup2)) (tupAdd (cdr tup1)(cdr tup2)))))))

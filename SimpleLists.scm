@@ -8,3 +8,12 @@
 (define alist2 '(x y)) ;this is the new way I should make lists.
 
 (define simple '(((hotdog))(and)(pickle))) ;this is the new way I should make lists.
+
+(define alist3 '(ewc))
+
+(define alist4 '(((tomato sauce))((bean)sauce)(and((flying)sauce))))
+
+(define alist5 '((coffee)cup((tea)cup)(and(hick))cup))
+
+
+

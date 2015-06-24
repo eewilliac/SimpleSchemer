@@ -17,7 +17,7 @@
        (cons (car currentList)(multiRember anAtom (cdr currentList)))))))
 
 
-(define knottylist '((hotdogs and)((hamburgers)and)(cheezburger and)(tomato)))
+(define knottylist '((hotdogs and)((hamburgers)and)(cheezburger and)and (tomato)and))
 ;now lets see multiRember*
 (define multiRember*
   (lambda (anAtom dataStructure)
@@ -30,3 +30,10 @@
       (else
        (cons (multiRember* anAtom (car dataStructure))(multiRember* anAtom(cdr dataStructure)))))))
        
+(define atomCount*
+  (lambda (anAtom dataStructure)
+    (cond
+      ((null? dataStructure)0)
+      ((atom? (car dataStructure))(+ 1 (atomCount* anAtom (cdr dataStructure))))
+      (else
+       (+ 1 (atomCount* anAtom (cdr dataStructure)))
